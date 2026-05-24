@@ -29,7 +29,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install mlflow
+          pip install mlflow pandas
 
       - name: Run mlflow project
         run: |
@@ -37,7 +37,7 @@ jobs:
 
       - name: Get latest MLflow run_id
         run: |
-          RUN_ID=$(ls -td mlruns/0/*/ | head -n 1 | cut -d'/' -f3)
+          RUN_ID=$(python -c "import mlflow; print(mlflow.search_runs(experiment_ids=['0'])['run_id'].iloc[ 0 ])")
           echo "RUN_ID=$RUN_ID" >> $GITHUB_ENV
 
       - name: Install Python dependencies
