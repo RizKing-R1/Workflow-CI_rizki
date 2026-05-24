@@ -6,9 +6,9 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 import mlflow
 
-n_estimators = int(sys.argv[5])
-max_depth = int(sys.argv[6])
-dataset_path = sys.argv[7]
+n_estimators = int(sys.argv[ 1 ])
+max_depth = int(sys.argv[ 2 ])
+dataset_path = sys.argv[ 3 ]
 
 mlflow.set_experiment("Model_CI_CD")
 
