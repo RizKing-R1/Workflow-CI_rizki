@@ -10,8 +10,6 @@ n_estimators = int(sys.argv[ 1 ])
 max_depth = int(sys.argv[ 2 ])
 dataset_path = sys.argv[ 3 ]
 
-mlflow.set_experiment("Model_CI_CD")
-
 df = pd.read_csv(dataset_path)
 X = df.iloc[ :, :-1 ]
 y = df.iloc[ :, -1 ]
